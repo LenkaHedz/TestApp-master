@@ -1,5 +1,6 @@
 .headtext {
     text-align: center;
+    color: #2566e5;
 }
 
 footer {
@@ -9,3 +10,7 @@ footer {
 .imgstype {
     text-align: center;
 }
+
+.conteinerd {
+  width: 100%
+};

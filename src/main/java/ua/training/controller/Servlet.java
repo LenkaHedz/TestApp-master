@@ -27,12 +27,14 @@ public class Servlet extends HttpServlet {
         commands.put(CommandNames.LOGIN, new LoginCommand());
         commands.put(CommandNames.LOGOUT, new LogoutCommand());
         commands.put(CommandNames.EXCEPTION, new ExceptionCommand());
+
+        commands.put(CommandNames.USER_TESTS, new UserTests());
+        commands.put(CommandNames.TESTS_TO_GO, new TestsToGo());
+        commands.put(CommandNames.GO_TEST, new GoTest());
+
         commands.put(CommandNames.ALL_USERS, new AllUsers());
         commands.put(CommandNames.ALL_TESTS, new AllTests());
         commands.put(CommandNames.SEARCH_TEST, new SearchTest());
-        commands.put(CommandNames.GO_TEST, new GoTest());
-        commands.put(CommandNames.TESTS_TO_GO, new TestsToGo());
-        commands.put(CommandNames.USER_TESTS, new UserTests());
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -63,14 +65,10 @@ public class Servlet extends HttpServlet {
             request.getRequestDispatcher(page).forward(request, response);
         }*/
         String path = request.getRequestURI();
-
         path = path.replaceAll(".*/test/" , "");
-
         Command command = commands.getOrDefault(path,
                 (r)->"/index.jsp");
-        System.out.println(path);
         String page = command.execute(request);
-        System.out.println(page);
         if(page.contains("redirect")){
             response.sendRedirect(page.replace("redirect:", ""));
         }else {

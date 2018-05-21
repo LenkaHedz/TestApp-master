@@ -13,7 +13,6 @@ public class UserTests implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         UserTestDaoService userTestService = new UserTestDaoService();
-        /*TODO user*/
         long userid = Long.parseLong(request.getSession().getAttribute(AttributeNames.LOGGED_USER_ID).toString());
         List<UserTest> userTestList = userTestService.findByUser(userid);
         request.setAttribute(AttributeNames.ALL_TESTS_COUNT, userTestList.size());

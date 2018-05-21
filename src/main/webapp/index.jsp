@@ -23,8 +23,9 @@
                     <br>
                     <form>
                     <select id="language" name="language" onchange="submit()">
-                        <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-                        <option value="ru" ${language == 'ru' ? 'selected' : ''}>Russian</option>
+                       <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                       <option value="ru" ${language == 'ru' ? 'selected' : ''}>Russian</option>
+
                     </select>
                     </form>
                 </li>
@@ -45,12 +46,7 @@
 </nav>
 
 <div class="headtext"><h1><fmt:message key="index.name.page"/></h1></div>
-<br>
-
-<a href="${pageContext.request.contextPath}/allusers">Show Users</a>
-<br>
-
-<a href="${pageContext.request.contextPath}/alltests">Show Tests</a>
+<div class="headtext"><h2><fmt:message key="index.text.page"/></h2></div>
 <br>
 
 <div class="imgstype"><img style="height: 400px;" src="${pageContext.request.contextPath}/util/test.jpg" class="rounded mx-auto d-block" alt="Test"></div>
